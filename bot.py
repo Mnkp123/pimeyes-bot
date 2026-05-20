@@ -3,7 +3,8 @@ import base64
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
-BOT_TOKEN = "8953302856:AAH0mMmoJt1fTBjfJ-Z2_PbbtTbQ3VgO2Xw"
+import os
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8953302856:AAH0mMmoJt1fTBjfJ-Z2_PbbtTbQ3VgO2Xw")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("Start command received!")
