@@ -95,11 +95,11 @@ async def search_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 search_url = "https://pimeyes.com/en/results/" + face_id
 
                 await update.message.reply_text(
-                    "Face detected successfully!\n\n"
-                    "Face ID: " + face_id + "\n\n"
-                    + ai_summary + "\n\n"
-                    "View Results:\n" + search_url
-                )
+    "Face detected successfully!\n\n"
+    "Face ID: " + face_id + "\n\n"
+    "AI Analysis: " + ai_summary + "\n\n"
+    "View Results:\n" + search_url
+)
             else:
                 await update.message.reply_text("No face detected. Please send a clearer image.")
         else:
