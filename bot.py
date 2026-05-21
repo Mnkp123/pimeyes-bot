@@ -30,8 +30,8 @@ def get_headers():
         "sec-ch-ua-platform": '"Windows"',
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Site": "same-origin"
-    }
+        "Sec-Fetch-Site": "same-origin",
+"Cookie": os.environ.get("PIMEYES_COOKIE", ""),    }
 
 def upload_with_retry(image_data, max_retries=3):
     for attempt in range(max_retries):
