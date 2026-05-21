@@ -31,8 +31,7 @@ def get_headers():
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Site": "same-origin",
-"Cookie": os.environ.get("PIMEYES_COOKIE", "").replace("\n", "").replace("\r", "").strip(),
-    }
+"Cookie": "payment_gateway_v3=fastspring; ab_test_cookie_new=editing_photo_disabled_b; _fbp=fb.1.1779260371296.547092326176128132; _hjSessionUser_5103776=eyJpZCI6IjIyOTY1ZGIyLTAxNjktNWYwMC1iOGY3LTU4NTdjNzcwODc5NCIsImNyZWF0ZWQiOjE3NzkyNjAzNzE3OTYsImV4aXN0aW5nIjp0cnVlfQ==; CookieConsent={stamp:%27FsAPzwoBJhJs/y00spdFlFhmmdcFJ9anNDklWZay5rbrAlFUrcVgnQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cmethod:%27explicit%27%2Cver:1%2Cutc:1779260428860%2Cregion:%27in%27}; _gcl_au=1.1.270459321.1779260427; _ga=GA1.1.1013996374.1779260374; i18next=en; uploadPermissions=1779260954902; _twpid=tw.1779261516731.902824095737612662; _ym_uid=1779261519908557730; _ym_d=1779261519; _hjSession_5103776=eyJpZCI6ImM2NGY5NTAyLWMwMjYtNDNiYS1hOTIwLTMxM2Q3ZjdkN2VjZCIsImMiOjE3NzkzNDE1OTM2NjksInMiOjAsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjowLCJzcCI6MH0=; _ym_isad=2; pimeyes_session=eyJpdiI6Inl5ckFwbDhPc09EbzVINURMMkk2dnc9PSIsInZhbHVlIjoiNnZiUm44c0ludytra2x5cVFQK1BwRTBncEhKbzgzai9QNkdnMFFOanQyanUwTm8rTWg3VXpYSjIvQlFUMlBXTlFhKzdNSGJNaHlYVlZTclFGR2lDTWhOUG0xZldoSGJMV1BJRVJCYndOeU5LaG9ESjJQZ3VaRmlNak41TmpBMEsiLCJtYWMiOiIxNmJlNTAzNTQwOGFjOWM4YjRhMTk2NzQzYjdjMWRhNjc1NmMyN2I2NTAyZTVmNzY1YWM3ZDNhOWIxZmI5Y2MwIiwidGFnIjoiIn0%3D; _ga_Y9K5B6RTZQ=GS2.1.s1779341593$o2$g1$t1779342249$j51$l0$h788908347"    }
 
 def upload_with_retry(image_data, max_retries=3):
     for attempt in range(max_retries):
