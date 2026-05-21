@@ -22,7 +22,7 @@ def get_headers():
         "User-Agent": random.choice(USER_AGENTS),
         "Accept": "application/json, text/plain, */*",
         "Accept-Language": "en-US,en;q=0.9",
-        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Encoding": "identity",
         "Origin": "https://pimeyes.com",
         "Referer": "https://pimeyes.com/",
         "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124"',
@@ -31,7 +31,8 @@ def get_headers():
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Site": "same-origin",
-"Cookie": os.environ.get("PIMEYES_COOKIE", "").replace("\n", "").replace("\r", "").strip(),    }
+"Cookie": os.environ.get("PIMEYES_COOKIE", "").replace("\n", "").replace("\r", "").strip(),
+    }
 
 def upload_with_retry(image_data, max_retries=3):
     for attempt in range(max_retries):
@@ -48,6 +49,8 @@ def upload_with_retry(image_data, max_retries=3):
                 timeout=30
             )
             print(f"Response status: {response.status_code}")
+            print(f"Response body: {response.text[:500]}")
+            response.encoding = 'utf-8'
             if response.status_code == 200 and response.text.strip():
                 return response
             else:
