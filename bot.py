@@ -31,7 +31,7 @@ def get_headers():
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Site": "same-origin",
-"Cookie": os.environ.get("PIMEYES_COOKIE", ""),    }
+"Cookie": os.environ.get("PIMEYES_COOKIE", "").replace("\n", "").replace("\r", "").strip(),    }
 
 def upload_with_retry(image_data, max_retries=3):
     for attempt in range(max_retries):
